@@ -3,21 +3,19 @@ import java.sql.Array;
 public class Main {
     public static void main(String[] args) {
         System.out.println("1 рівень");
-        int [] arr = new int[100];
+        int [] arr = new int[1000000];
         for(int i= 0; i<arr.length; i++){
             arr[i] = (int)(Math.random()*100);
         }
-        print(arr);
         int[] arrMerge = arr;
         long startMerge = System.nanoTime();
         MergeTD.sort(arrMerge);
         long endMerg = System.nanoTime();
         System.out.println();
         System.out.println();
-        print(arrMerge);
         System.out.println();
-        double timeMerge = (double)(endMerg-startMerge)/1000000;
-        System.out.println("Час сортування масиву на 100 елементів методом низхідного злиття: "+timeMerge +" секунд");
+        double timeMerge = (double)(endMerg-startMerge)/1000000000;
+        System.out.println("Час сортування масиву на 1 000 000 елементів методом низхідного злиття: "+timeMerge +" секунд");
 
 
         System.out.println("2 рівень");
@@ -25,20 +23,9 @@ public class Main {
         long startBubble = System.nanoTime();
         bubbleSort(arrBubble);
         long endBubble=System.nanoTime();
-        print(arrBubble);
-        double timeBubble=(double)(endBubble-startBubble)/1000000;
+        double timeBubble=(double)(endBubble-startBubble)/1000000000;
         System.out.println();
-        System.out.println("Час сортування масиву на 100 елементів бульбашковим методом: "+timeBubble+" секунд");
-    }
-    public static void print(int[] arr){
-        int j = 0;
-        for (int i = 0; i < arr.length; i++) {
-            j++;
-            if (j%20 == 0){
-                System.out.println();
-            }
-            System.out.print(arr[i]+"\t");
-        }
+        System.out.println("Час сортування масиву на 1 000 000 елементів бульбашковим методом: "+timeBubble+" секунд");
     }
     public static void bubbleSort(int[] arr){
         int n = arr.length;
